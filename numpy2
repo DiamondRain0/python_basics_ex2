@@ -1,0 +1,35 @@
+import numpy as np
+
+
+numberss= np.array([0,5,10,15,20,25,50,75])
+
+result = numberss[5]
+result = numberss[-1]
+result = numberss[0:3]
+result = numberss[:3]
+result = numberss[3:]
+result = numberss[::]
+result = numberss[::-1]
+result = numberss[::-2]
+
+numberss2= np.array([[0,5,10],[15,20,25],[50,75,85]])
+
+result = numberss2[0]
+result = numberss2[2]
+result = numberss2[0,2]
+result = numberss2[2,1]
+result = numberss2[:,2]  # tüm satırlrarın 3.elemanı
+result = numberss2[:,0]
+result = numberss2[:,0:2]
+result = numberss2[-1,:]
+result = numberss2[:2,:2]
+#print(result)
+
+arr1 = np.arange(0,10)
+# arr2 = arr1 #referans
+
+arr2 = arr1.copy()   # *****önemliiii******
+arr2[0] =20
+
+print(arr1)
+print(arr2)

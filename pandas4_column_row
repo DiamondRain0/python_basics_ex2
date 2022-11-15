@@ -1,0 +1,39 @@
+import pandas as pd
+from numpy.random import randn
+
+df= pd.DataFrame(randn(3,3),index=["a","b","c"],columns= ["Column1","Column2","Column3"])
+
+result = df
+result = df["Column1"]
+result = type(df["Column1"])
+result = df[["Column1","Column2"]]
+
+# loc["row","column"] => loc["row"] => loc[":","column"]
+result = df.loc["a"]
+result = type(df.loc["a"])
+
+result = df.iloc[2]
+
+"""
+result = df.loc[:,"Column1"]
+result = df.loc[:,["Column1","Column2"]]
+result = df.loc[:,"Column1":"Column3"]
+result = df.loc[:,:"Column2"]
+result = df.loc["a":"b",:"Column3"]
+result = df.loc[:"b",:"Column3"]
+"""
+
+result = df.loc["a","Column2"]
+result = df.loc["c","Column1"]
+result = df.loc[["a","b"],["Column1","Column2"]]
+
+
+df["Column4"] = pd.Series(randn(3), ["a","b","c"]) 
+df["Column5"] = df["Column1"] + df["Column3"]
+
+df.drop("Column5", axis= 1, inplace=False)  # 1 = y , 0 = x
+# inplace = True yazınca orjinalinde değiştiriyor
+# yazmazsak ya da False yazarsak kopyasında
+print(df)
+
+print(result)
